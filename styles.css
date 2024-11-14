@@ -322,7 +322,8 @@ h2 {
   .img-con {
     width: 250px;
     height: 250px;
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 50px;
   }
 
