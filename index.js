@@ -71,3 +71,24 @@ navLinks.forEach((link) => {
     document.querySelector(".nav-list").classList.remove("show");
   });
 });
+// Function to load the footer content
+function loadFooter() {
+  fetch("/footer.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Footer content could not be loaded");
+      }
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById("footer-container").innerHTML = data;
+    })
+    .catch((error) => {
+      console.error("Error loading footer:", error);
+    });
+}
+
+// Call the loadFooter function when the page loads
+window.onload = function () {
+  loadFooter();
+};
