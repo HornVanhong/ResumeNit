@@ -109,7 +109,6 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
   min-height: 100vh; /* Ensure full height of viewport */
 }
@@ -317,12 +316,13 @@ h2 {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
+    padding: 10px;
   }
 
   .img-con {
     width: 250px;
     height: 250px;
-    margin-left: 30px;
+    margin-left: 50px;
     margin-bottom: 50px;
   }
 
