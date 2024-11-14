@@ -1,34 +1,42 @@
 .about-body {
   width: 100%;
-  height: 100vh;
   background-color: rgb(233, 233, 234);
+  min-height: 100vh;
+  padding: 10px; /* Adds padding for better spacing on mobile */
 }
+
 .content-about {
-  width: 100vw;
-  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 10px;
   gap: 10px;
 }
+
 .img-nit {
   width: 100%;
-  height: 500px;
+  max-width: 500px; /* Limits image width on larger screens */
+  height: auto; /* Maintains aspect ratio */
 }
+
 .img-nit > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
+
 .Info-content {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
+
 .title-about,
 .title-bar {
-  font-size: 30px;
+  font-size: 2rem; /* Relative font size for better scaling */
 }
+
 .title-bar {
   width: 100%;
   display: flex;
@@ -38,61 +46,83 @@
   text-align: center;
   gap: 5px;
 }
+
 .line {
-  width: 200px;
+  width: 50%; /* Flexible width */
+  max-width: 200px;
   height: 5px;
   background-color: black;
 }
+
 .content-bar {
   width: 100%;
-  height: 100%;
-  background-color: yellow;
   padding: 10px;
   gap: 10px;
   display: flex;
   flex-direction: column;
 }
+
 .con-detail {
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 100%; /* Flexible width */
+  max-width: 400px;
 }
+
 .sign {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   text-align: center;
 }
+
 .title-name {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
 }
+
 .title-detail {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
 }
-@media (max-width: 740px) and (min-width: 360px) {
-  .about-body {
-    background-color: rgb(12, 140, 165);
-  }
+
+@media (max-width: 740px) {
   .content-about {
     display: flex;
     flex-direction: column;
-    height: 50%;
   }
+
   .img-nit {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
+
   .title-about,
   .title-bar {
-    font-size: 16px;
+    font-size: 1rem;
+    text-align: center;
   }
+
   #detail-about {
-    font-size: 12px;
+    font-size: 0.9rem;
   }
+
   .title-name,
-  .title-detail,
   .title-detail {
-    font-size: 10px;
+    font-size: 0.8rem;
+    width: 100%;
   }
+
   .line {
-    width: 100px;
+    width: 50%;
+    max-width: 100px;
+  }
+
+  .con-detail {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
   }
 }
