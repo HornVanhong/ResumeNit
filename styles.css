@@ -322,7 +322,8 @@ h2 {
   .img-con {
     width: 250px;
     height: 250px;
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 50px;
   }
 
@@ -353,35 +354,10 @@ h2 {
   }
 }
 
-/* About Section */
-.about-body {
-  width: 100vw;
-  background-color: rgb(58, 58, 153);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  margin: 10px;
-}
-
-.img-nit {
-  width: 500px;
-  height: 500px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px;
-}
-
-.img-nit > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* Smooth Scroll */
 html {
   scroll-behavior: smooth;
 }
+/* ABout */
+
+/* End */
