@@ -136,3 +136,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// Function to show the popup
+function showPopup() {
+  document.getElementById("hire-popup").style.display = "flex"; // Show the popup as flex to center it
+}
+
+// Function to close the popup
+function closePopup() {
+  document.getElementById("hire-popup").style.display = "none"; // Hide the popup
+}
+
+// Close the popup when clicking anywhere outside the popup content
+window.onclick = function (event) {
+  var modal = document.getElementById("hire-popup");
+  // Close if clicking outside the modal content
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Form submission (Optional - Prevent actual submission for testing)
+document
+  .getElementById("hire-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission for testing
+    alert("Form submitted!");
+  });

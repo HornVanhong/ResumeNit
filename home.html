@@ -8,7 +8,7 @@
         with a focus on banking and financial systems.
       </h2>
       <div class="btn-con">
-        <button id="btn-hire">HIRE ME NOW</button>
+        <button id="btn-hire" onclick="showPopup()">HIRE ME NOW</button>
         <a
           href="PDF/CV MAT SREYNIT.pdf"
           download="CV MAT SREYNIT"
@@ -19,5 +19,46 @@
       </div>
     </div>
     <div class="img-con"><img src="Image/Nit.jpg" alt="" /></div>
+  </div>
+</div>
+
+<!-- The Modal (Popup) -->
+<div id="hire-popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2>Hire Me</h2>
+    <p>Please fill out the form below to hire me:</p>
+
+    <!-- Contact Form inside Popup -->
+    <form id="hire-form">
+      <label for="name">Your Name:</label><br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      /><br /><br />
+
+      <label for="email">Your Email:</label><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      /><br /><br />
+
+      <label for="message">Your Message:</label><br />
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Enter your message"
+        required
+      ></textarea
+      ><br /><br />
+
+      <button type="submit" id="submit-btn">Submit</button>
+    </form>
   </div>
 </div>
