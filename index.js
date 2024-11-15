@@ -28,8 +28,8 @@ $(document).ready(function () {
       setProgressBar("communication-progress", 85);
       setProgressBar("teamwork-progress", 90);
       setProgressBar("problem-solving-progress", 80);
-      setProgressBar("khmer-progress", 90);
-      setProgressBar("english-progress", 85);
+      setProgressBar("khmer-progress", 100);
+      setProgressBar("english-progress", 50);
     });
     updateActiveLink("#skilllink");
   });
