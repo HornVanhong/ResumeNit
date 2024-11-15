@@ -112,7 +112,7 @@
 /* Responsive Design */
 @media (max-width: 740px) {
   #my-edu {
-    font-size: 30px; /* Adjust font size for smaller screens */
+    font-size: 1rem; /* Adjust font size for smaller screens */
   }
 
   .education-container {
@@ -129,6 +129,15 @@
     text-align: center;
     margin-left: 0;
     padding: 15px;
+  }
+  .content > h2 {
+    font-size: 12px;
+  }
+  .content > p {
+    font-size: 10px;
+  }
+  .content > span {
+    font-size: 8px;
   }
 
   .image img {
