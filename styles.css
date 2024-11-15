@@ -28,6 +28,34 @@ body {
   top: 0;
   z-index: 1000;
 }
+/* Active and Hover Link Underline */
+.nav-list li {
+  padding: 10px 15px;
+  cursor: pointer;
+  position: relative;
+  color: black;
+}
+
+.nav-list li::after {
+  content: "";
+  position: absolute;
+  background-color: hotpink;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-list li:hover::after {
+  width: 100%;
+}
+
+/* Active Link - keeps underline visible */
+.nav-list li.active::after {
+  width: 100%;
+}
 
 .nav-bar h1 {
   color: black;

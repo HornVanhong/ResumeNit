@@ -92,3 +92,16 @@ function loadFooter() {
 window.onload = function () {
   loadFooter();
 };
+document.addEventListener("DOMContentLoaded", () => {
+  const navItems = document.querySelectorAll(".nav-list li");
+
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Remove active class from all links
+      navItems.forEach((link) => link.classList.remove("active"));
+
+      // Add active class to the clicked link
+      item.classList.add("active");
+    });
+  });
+});
