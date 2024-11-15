@@ -34,7 +34,7 @@
 
 .title-about,
 .title-bar {
-  font-size: 2rem; /* Relative font size for better scaling */
+  font-size: 1rem; /* Relative font size for better scaling */
 }
 
 .title-bar {
@@ -46,7 +46,9 @@
   text-align: center;
   gap: 5px;
 }
-
+.title-bar > span {
+  width: 200px;
+}
 .line {
   width: 50%; /* Flexible width */
   max-width: 200px;
@@ -60,29 +62,30 @@
   gap: 10px;
   display: flex;
   flex-direction: column;
+  /* background-color: pink; */
+  justify-content: center;
 }
 
 .con-detail {
   display: flex;
-  justify-content: space-between;
-  width: 100%; /* Flexible width */
-  max-width: 400px;
+  justify-content: center;
+  width: 100%;
+  /* background-color: aqua; */
 }
 
 .sign {
-  width: 100%;
-  max-width: 200px;
+  width: 50%;
+  max-width: 100px;
   text-align: center;
 }
 
 .title-name {
-  width: 100%;
+  width: 50%;
   max-width: 300px;
 }
 
 .title-detail {
   width: 100%;
-  max-width: 600px;
 }
 
 @media (max-width: 740px) {
@@ -101,7 +104,7 @@
 
   .title-about,
   .title-bar {
-    font-size: 1rem;
+    font-size: 12px;
     text-align: center;
   }
 
@@ -118,6 +121,7 @@
   .line {
     width: 50%;
     max-width: 100px;
+    height: 2px;
   }
 
   .con-detail {
