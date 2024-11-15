@@ -12,7 +12,9 @@
   padding: 10px;
   gap: 10px;
 }
-
+#nit-dob {
+  display: none;
+}
 .img-nit {
   width: 100%;
   max-width: 500px; /* Limits image width on larger screens */
@@ -156,6 +158,12 @@
     height: auto;
     margin-left: auto;
     margin-right: auto;
+  }
+  #nit-stand {
+    display: none;
+  }
+  #nit-dob {
+    display: block;
   }
 
   .title-about,
