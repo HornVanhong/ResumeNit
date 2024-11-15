@@ -116,7 +116,7 @@
   }
 
   .education-container {
-    width: 90%; /* Make container width more flexible */
+    width: 100%; /* Make container width more flexible */
   }
 
   .education-item {
@@ -137,25 +137,6 @@
 
   .circle {
     left: -10px; /* Adjust circle position */
-  }
-}
-
-@media (max-width: 480px) {
-  .image img {
-    max-width: 100px;
-  }
-
-  .content h2 {
-    font-size: 18px;
-  }
-
-  .content p,
-  .content span {
-    font-size: 14px;
-  }
-
-  .image.icon {
-    font-size: 30px;
   }
   .education-timeline {
     border: none;
