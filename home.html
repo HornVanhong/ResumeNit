@@ -24,13 +24,12 @@
 
 <!-- The Modal (Popup) -->
 <div id="hire-popup" class="popup">
-  <div class="popup-content">
+  <div id="popup-content" class="popup-content">
     <span class="close-btn" onclick="closePopup()">&times;</span>
     <h2>Hire Me</h2>
     <p>Please fill out the form below to hire me:</p>
 
-    <!-- Contact Form inside Popup -->
-    <form id="hire-form">
+    <form id="hire-form" onsubmit="return false;">
       <label for="name">Your Name:</label><br />
       <input
         type="text"
