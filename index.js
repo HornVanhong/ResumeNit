@@ -4,9 +4,10 @@ $(document).ready(function () {
 
   // Navigation link event handlers
   $("#homelink").click(function (e) {
-    e.preventDefault(); // Corrected typo
+    e.preventDefault();
     $("#content").load("home.html", function () {
       window.scrollTo(0, 0);
+      addHireFormHandler(); // Attach the form handler after loading the home content
     });
   });
 
@@ -69,18 +70,7 @@ $(document).ready(function () {
     });
   });
 });
-// Toggle the 'show' class to display or hide the nav menu on mobile
-document.getElementById("menu-icon").addEventListener("click", function () {
-  document.querySelector(".nav-list").classList.toggle("show");
-});
 
-// Close the menu when a navigation link is clicked
-const navLinks = document.querySelectorAll(".nav-list li");
-navLinks.forEach((link) => {
-  link.addEventListener("click", function () {
-    document.querySelector(".nav-list").classList.remove("show");
-  });
-});
 // Function to load the footer content
 function loadFooter() {
   fetch("/footer.html")
@@ -113,12 +103,25 @@ function setProgressBar(id, progress) {
     console.error(`Element with id ${id} not found!`);
   }
 }
+// Menu & nav
+// Toggle the 'show' class to display or hide the nav menu on mobile
+document.getElementById("menu-icon").addEventListener("click", function () {
+  document.querySelector(".nav-list").classList.toggle("show");
+});
 
+// Close the menu when a navigation link is clicked
+const navLinks = document.querySelectorAll(".nav-list li");
+navLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    document.querySelector(".nav-list").classList.remove("show");
+  });
+});
 // Function to update active link (highlight the current page in the nav)
 function updateActiveLink(activeLink) {
   $(".nav-list li").removeClass("active");
   $(activeLink).addClass("active");
 }
+// end menu-nav
 // Call the loadFooter function when the page loads
 window.onload = function () {
   loadFooter();
@@ -137,28 +140,100 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 // Function to show the popup
+// Function to show the popup
 function showPopup() {
-  document.getElementById("hire-popup").style.display = "flex"; // Show the popup as flex to center it
+  document.getElementById("hire-popup").style.display = "flex"; // Show popup
+  attachFormHandler(); // Ensure the form handler is attached when showing the popup
 }
 
 // Function to close the popup
 function closePopup() {
-  document.getElementById("hire-popup").style.display = "none"; // Hide the popup
+  document.getElementById("hire-popup").style.display = "none"; // Hide popup
+  resetForm(); // Reset the form content
 }
 
 // Close the popup when clicking anywhere outside the popup content
 window.onclick = function (event) {
-  var modal = document.getElementById("hire-popup");
-  // Close if clicking outside the modal content
-  if (event.target === modal) {
-    modal.style.display = "none";
+  const popup = document.getElementById("hire-popup");
+  const popupContent = document.getElementById("popup-content");
+
+  // Close if clicking outside the popup content
+  if (event.target === popup && !popupContent.contains(event.target)) {
+    closePopup();
   }
 };
 
-// Form submission (Optional - Prevent actual submission for testing)
-document
-  .getElementById("hire-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form submission for testing
-    alert("Form submitted!");
-  });
+// Function to attach the form handler
+function attachFormHandler() {
+  const form = document.getElementById("hire-form");
+  if (form) {
+    // Remove existing submit event listener to prevent duplicate handlers
+    form.removeEventListener("submit", handleFormSubmit);
+
+    // Add a new submit event listener
+    form.addEventListener("submit", handleFormSubmit);
+  } else {
+    console.error("Form not found!");
+  }
+}
+
+// Function to handle form submission
+function handleFormSubmit(event) {
+  event.preventDefault(); // Prevent page reload
+  const form = event.target;
+  const name = form.elements["name"].value;
+  const email = form.elements["email"].value;
+  const message = form.elements["message"].value;
+
+  console.log(
+    `Form submitted. Name: ${name}, Email: ${email}, Message: ${message}`
+  );
+
+  // Display a thank-you message in the popup
+  const popupContent = document.getElementById("popup-content");
+  popupContent.innerHTML = `
+    <h2>Thank You!</h2>
+    <p>Thank you, ${name}! Your message has been received. I will respond to ${email} shortly.</p>
+    <button onclick="closePopup()">Close</button>
+  `;
+}
+
+// Function to reset the form content
+function resetForm() {
+  const popupContent = document.getElementById("popup-content");
+  popupContent.innerHTML = `
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2>Hire Me</h2>
+    <p>Please fill out the form below to hire me:</p>
+    <form id="hire-form" onsubmit="return false;">
+      <label for="name">Your Name:</label><br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      /><br /><br />
+
+      <label for="email">Your Email:</label><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      /><br /><br />
+
+      <label for="message">Your Message:</label><br />
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Enter your message"
+        required
+      ></textarea
+      ><br /><br />
+
+      <button type="submit" id="submit-btn">Submit</button>
+    </form>
+  `;
+}
